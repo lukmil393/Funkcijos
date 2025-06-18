@@ -97,28 +97,127 @@ import random
 
 # 2. Sugeneruokite atsitiktinį stringą iš raidžių ir skaičių (10 simbolių). Atspausdinkite simbolius stulpeliu.
 # Jei tai skaičius apgaubkite “ [ 7 ]”. Jei skaičiai eina keli iš eilės, apgaubkite juos kartu. [75]
-def generate_rnd_str(length):
-  symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890"
-  text = ""
-  for i in range(length):
-    text += symbols[random.randint(0,len(symbols) -1)]
-  return text
+# def generate_rnd_str(length):
+#   symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890"
+#   text = ""
+#   for i in range(length):
+#     text += symbols[random.randint(0,len(symbols) -1)]
+#   return text
+#
+# def spausdinti_su_apgaubtais_skaiciais(text):
+#   i = 0
+#   while i < len(text):
+#     if text [i].isdigit():
+#       skaiciu_grupe = text[i]
+#       i += 1
+#       while i < len(text) and text[i].isdigit():
+#         skaiciu_grupe += text[i]
+#         i += 1
+#       print(f"[{skaiciu_grupe}]")
+#     else:
+#       print(text[i])
+#       i += 1
+# atsitiktinis_tekstas = generate_rnd_str(10)
+# print("Sugeneruotas tekstas:", atsitiktinis_tekstas)
+# print("Simboliai stulpeliu (su sugrupuotais skaičiais):")
+# spausdinti_su_apgaubtais_skaiciais(atsitiktinis_tekstas)
 
-def spausdinti_stulpeliu(tekstas):
-  for simbolis in tekstas:
-    print(simbolis)
+# 3.  Parašykite funkciją, kuri skaičiuotų, ir gražintų iš kiek sveikų skaičių jos argumentas dalijasi be liekanos
+# (išskyrus vienetą ir patį save). Pvz padavus 10 turi grąžinti 2,  o padavus 20 gražintų 4.
+# def dalikliu_kiekis(num):
+#   kiekis = 0
+#   for i in range(2, num):
+#     if num % i == 0:
+#       kiekis += 1
+#   return kiekis
+# print(dalikliu_kiekis(10))
+# print(dalikliu_kiekis(20))
 
-atsitiktinis_tekstas = generate_rnd_str(10)
-print("Sugeneruotas tekstas: ", atsitiktinis_tekstas)
-print("Simboliai stulpeliu:")
-spausdinti_stulpeliu(atsitiktinis_tekstas)
+# 4. Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77.
+# Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
 
-def spausdinti_su_apgaubtais_skaiciais(text):
-  for simbolis in text:
-    if simbolis.isdigit():
-      print(f"[{simbolis}]")
+# masyvas = [random.randint(33, 77) for _ in range(100)]
+# rusiuotas = sorted(masyvas, key=dalikliu_kiekis, reverse=True)
+# print("Originalus masyvas:")
+# print(masyvas)
+# print ("Išrūšiuotas pagal daliklių kiekį mažėjimo tvarka):")
+# print(rusiuotas)
+
+# 11. Sukurkite Funkciją kuri priimtų sakinį, jį užkoduotų ir grąžintų.
+# Kodavimas - sakinį apsukame iš kitos pusės. Pvz “Naglis” turi gautis “silgaN”.
+
+# def koduotas_sakinys(sakinys):
+#     apsuktas = sakinys[::-1]
+#     return apsuktas
+# sakinys = "Lukas"
+# kodas = koduotas_sakinys(sakinys)
+# print(kodas)
+
+
+# 12. Sukurti funkciją, kuri apsuka tik žodžius. “Labas rytas” -> “sabal satyr” ir atspausdina rezultatą
+# def apsukti_zodzius(sakinys):
+#   zodziai = sakinys.split()
+#   apsukti = [zodis[::-1] for zodis in zodziai]
+#   return " ".join(apsukti)
+# sakinys = "labas rytas"
+# rezultatas = apsukti_zodzius(sakinys)
+# print(rezultatas)
+
+# 13.Sukurkite funkciją, kuri priimtų masyvą ir atspausdintų tik tuos elementus kurie yra skaičiai.
+# def spausdinti_tik_skaicius(masyvas):
+#   for elementas in masyvas:
+#     if isinstance(elementas, int):
+#       print(elementas)
+# duomenys = [10, "labas", 5, 8, 55, "medis"]
+# spausdinti_tik_skaicius(duomenys)
+
+# 14. Sukurkite funkciją, kuri iš paduoto masyvo atspausdina tik sveikuosius skaičius.
+# (jei pavyks, patobulinkite, kad funkcija priimtų antrą parametrą
+# True/False kuris nuspręstų ar spausdins tik sveikuosius skaičius ar skaičius su kableliu.
+
+# def spausdinti_skaicius(masyvas, tik_sveikieji=True):
+#   for elementas in masyvas:
+#     if tik_sveikieji:
+#       if isinstance(elementas, int) and not isinstance(elementas, bool):
+#         print(elementas)
+#     else:
+#       if isinstance(elementas, float):
+#         print(elementas)
+# duomenys = 10, 2.54, 42, True, -5, 0, False, "kebabas, 8.88"
+# print("Tik sveikieji skaiciai:")
+# spausdinti_skaicius(duomenys, tik_sveikieji=True)
+# print("\nTik skaiciai su kableliu:")
+# spausdinti_skaicius(duomenys, tik_sveikieji=False)
+
+# 15. Sukurkite funkciją word_count kuri priimtų textą ir gražintų kiek jame yra žodžių.
+# def word_count(text):
+#   words = text.split()
+#   return len(words)
+# tekstas = "Siandien yra labai labai grazi diena"
+# print("Zodziu skaicius:", word_count(tekstas))
+
+# 16. Sukurkite funkciją kuri priima du parametrus. Skaičių masyvą ir boolean.
+# Funkcija gražina prafiltruotą masyvą. Kai antras parametras True/tik poriniais skaičiais, False/tik neporiniais skaičiais.
+# def filtruoti_masyva(masyvas, poriniai=True):
+#   if poriniai:
+#     return [x for x in masyvas if x % 2 == 0]
+#   else:
+#     return [x for x in masyvas if x % 2 != 0]
+# masyvas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+#
+# print(filtruoti_masyva(masyvas, True))
+# print(filtruoti_masyva(masyvas, False))
+
+# 17. Sukurkite funkciją number_is_prime. Funkcija priima skaičių, gražina True/False ar skaičius pirminis.
+
+def number_is_prime(number):
+  if number < 2:
+        return False
+  for i in range(2, int(number ** 0.5) + 1):
+    if number % i == 0:
+      return False
     else:
-      print(simbolis)
-
-
-
+      return True
+skaicius = random.randint(1, 100)
+print(f"Skaicius: {skaicius}")
+print(number_is_prime(skaicius))
